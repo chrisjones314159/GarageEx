@@ -49,10 +49,10 @@ public class Garage {
 	}
 	
 	
-	public void removeByManufacturer(String model) {
+	public void removeByManufacturer(String manufacturer) {
 		Vehicle vehicleFound = null;
 		for (Vehicle vehicle: vehicleList) {
-			if (vehicle.getManufacturer() == model) {
+			if (vehicle.getManufacturer() == manufacturer) {
 				vehicleFound = vehicle;
 			}
 			}
@@ -60,12 +60,15 @@ public class Garage {
 		}
 	
 	
-	public void removeByMultipleByManufacturer(String model) {
+	public void removeByMultipleByManufacturer(String manufacturer) {
 		Vehicle vehicleFound = null;
-		for (int i = 0; i < vehicleList.size(); i++) {
-			if (vehicleList.get(i).getManufacturer() == model) {
+		for (int i = 0; i < vehicleList.size();) {
+			if (vehicleList.get(i).getManufacturer() == manufacturer) {
 				vehicleFound = vehicleList.get(i);
 				removeVehicle(vehicleFound);
+			}
+			else {
+				i++;
 			}
 			}
 		}
